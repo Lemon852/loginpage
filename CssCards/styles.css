@@ -1,0 +1,86 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*,*:after,*:before{
+    font-family: "Open Sans", sans-serif;
+}
+.card{
+    --padding: 1rem;
+    background: white;
+    border: 1px solid #778;
+    border-radius: .25rem;
+    overflow: hidden;
+    /* max-width: 300px; this works, but some time we need our cards need to be bigger smaller  
+    so we'll make a cotainer and give ti a grid */
+
+}
+.card-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 1rem;
+    align-items:flex-start ;
+
+}
+
+
+.card-body{
+    padding: 0 var(--padding);
+    font-size: 0.9rem;
+}
+/* for shadow boxing*/
+.card.card-shadow{
+    border: none;
+    box-shadow: 10px 10px 15px black;
+}
+.card-header.card-img{
+    padding: 0;
+    overflow: hidden;
+
+}
+.card-header.card-img>img{
+    display: block /*now I can change the height and width*/;
+    width: 100%;
+    aspect-ratio: 16/9;
+    max-height: 200px;
+    object-position: center;
+    object-fit: cover;
+    transition: 200ms transform ease-in-out;
+}
+.card-header.card-img>img:hover{
+    transform: scale(1.025);
+}
+
+.card-header{
+    font-size: 1.7rem;
+    margin-bottom: .25rem;
+    padding: var(--padding);
+    padding-bottom: 0;
+}
+.card-footer{
+    margin-top: 1rem;
+    padding: var(--padding);
+    padding-top: 0;
+}
+.btn{
+    --color: hsl(200, 50%, 50%);
+    background-color:var(--color) ;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: .25rem;
+    padding: .5rem .75rem; /*em is used instead of rem is because padding scales up with reciporcal to the font size of the text*/
+    cursor: pointer;
+}
+.btn:hover, .btn:focus{
+    background-color: hsl(200,50%, 60%);
+}
+.btn.btn-outline{
+    background: none;
+    border: 1px solid var(--color);
+    color: var(--color);
+}
+.btn.btn-outline:hover,.btn.btn-outline:focus{
+    background-color: hsl(200, 50%, 90%);
+}
+.btn + .btn{
+    margin-left: .50rem; /* we can use this selection tool to select two elemnts that come after one another like here*/
+}
